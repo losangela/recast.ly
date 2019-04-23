@@ -1,18 +1,17 @@
 import exampleVideoData from '../data/exampleVideoData.js';
 
 var VideoPlayer = (props) => {
-  console.log('i am at video player ready to see the example prop')
-  if (!props.id) {
-    props = exampleVideoData[0]
+  if (!props.video) {
+    props.video = exampleVideoData[0]
   }
   return (
   <div className="video-player">
     <div className="embed-responsive embed-responsive-16by9">
-      <iframe className="embed-responsive-item" src={'https://www.youtube.com/embed/' + props.id.videoId} allowFullScreen></iframe>
+      <iframe className="embed-responsive-item" src={'https://www.youtube.com/embed/' + props.video.id.videoId + '?autoplay=1'} allowFullScreen></iframe>
     </div>
     <div className="video-player-details">
-      <h3>{props.snippet.title}</h3>
-      <div>{props.snippet.description}</div>
+      <h3>{props.video.snippet.title}</h3>
+      <div>{props.video.snippet.description}</div>
       {/* <h3>{prop.video.snippet.title}</h3>
       <div>{prop.video.snippet.description}</div> */}
     </div>

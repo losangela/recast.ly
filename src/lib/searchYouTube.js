@@ -11,7 +11,7 @@ const searchYouTube = (options, callback) => {
       type: 'video',
       part: 'snippet'
     },
-    contentType: 'application/json',
+    contentType: 'json',
     success: function(data) {
       callback(data);
     },
@@ -21,7 +21,6 @@ const searchYouTube = (options, callback) => {
   });
 };
 
-console.log('here is the search result variable from searchyoutube.js')
 // console.log(searchResult)
 
 export default searchYouTube

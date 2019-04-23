@@ -3,10 +3,8 @@ import App from './App.js';
 
 
 var VideoListEntry = (props) => {
-  console.log('i am at videolistentry')
-  console.log(props)
   return (
-  <div className="video-list-entry media" onClick={videoClick(props.video)}>
+  <div className="video-list-entry media" onClick={() => props.click(props.video)}>
     <div className="media-left media-middle">
     {/* <img className="media-object" src="https://news.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/01-cat-training-IMG_3727.adapt.1900.1.jpg" alt="" /> */}
       <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
