@@ -1,17 +1,27 @@
 import VideoListEntry from './VideoListEntry.js';
+import exampleVideoData from '../data/exampleVideoData.js'
 
-var VideoList = (props) => (
+var VideoList = (props) => {
+  console.log('i am at videolist')
+  console.log(props)
+  if (!props.videos) {
+    console.log('hey theres no props passed in videolist')
+    props.videos = exampleVideoData
+  }
+  return (
   <div className="video-list">
-  {/* <div><VideoListEntry /></div> */}
-    {props.videos.map((item) => <VideoListEntry props = {item}/>)}
+    <div><VideoListEntry video = {props.videos[0]} /></div>
+    <div><VideoListEntry video = {props.videos[1]} /></div>
+    <div><VideoListEntry video = {props.videos[2]} /></div>
   </div>
-);
+)};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
 VideoList.propTypes = {
   videos: React.PropTypes.array.isRequired
 };
+console.log('i made videolist')
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope.
 // `var` declarations will only exist globally where explicitly defined.

@@ -1,25 +1,27 @@
-import YOUTUBE_API_KEY from '../config/youtube.js'
 
-var searchYouTube = (options, callback) => {
+const searchYouTube = (options, callback) => {
   // TODO
   $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/search',
     type: 'GET',
     data: {
-      q: options.query || 'cats',
-      maxResults: options.max || 5,
-      key: YOUTUBE_API_KEY,
+      q: options.query,
+      maxResults: options.max,
+      key: options.key,
       type: 'video',
       part: 'snippet'
     },
     contentType: 'application/json',
-    success: function() {
-      console.log(this)
+    success: function(data) {
+      callback(data);
     },
     error: function () {  
-      console.log(options)        
+      console.log('fail')
     }
   });
 };
 
-export default searchYouTube;
+console.log('here is the search result variable from searchyoutube.js')
+// console.log(searchResult)
+
+export default searchYouTube
